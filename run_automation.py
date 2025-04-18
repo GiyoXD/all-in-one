@@ -189,7 +189,7 @@ def main():
             "--configdir", str(config_dir),
         ] + flags
         
-        logging.info(f"Running Invoice generation step to create: {invoice_output_dir / output_filename}")
+        logging.info(f"Running Invoice generation step to create: {output_filename}")
         if not run_script(invoice_gen_script, args=invoice_gen_args, cwd=invoice_gen_dir, script_name="invoice_gen"):
             logging.error(f"Invoice generation script failed for {mode} mode.")
             continue
@@ -197,9 +197,9 @@ def main():
     logging.info("--- Automation Completed Successfully ---")
     logging.info(f"All outputs saved in directory: {output_dir}")
     logging.info("Generated three versions:")
-    logging.info(f"1. Normal: {invoice_output_dir / f'CT&INV&PL {identifier} NORMAL.xlsx'}")
-    logging.info(f"2. FOB: {invoice_output_dir / f'CT&INV&PL {identifier} FOB.xlsx'}")
-    logging.info(f"3. Custom: {invoice_output_dir / f'CT&INV&PL {identifier} CUSTOM.xlsx'}")
+    logging.info(f"1. Normal: CT&INV&PL {identifier} NORMAL.xlsx")
+    logging.info(f"2. FOB: CT&INV&PL {identifier} FOB.xlsx")
+    logging.info(f"3. Custom: CT&INV&PL {identifier} CUSTOM.xlsx")
 
 if __name__ == "__main__":
     main()
